@@ -10,7 +10,7 @@ export async function GET(){
   const products=await db.collection('products').find({owner:f.seller,active:true,stock:{$gt:0},until:{$gt:now},created:{$gt:now-86400000}}).project({id:1}).toArray();
   for(const p of products){
    const result=await db.collection('notifications').updateOne({owner:u.userId,kind:'new_offer',entity:p.id},{$setOnInsert:{id:crypto.randomUUID(),owner:u.userId,kind:'new_offer',entity:p.id,created:now,read_at:null}},{upsert:true});
-   if(result.upsertedCount)await db.collection('change_version').updateOne({id:1},{$setOnInsert:{id:1,version:0},$inc:{version:1}},{upsert:true});
+   if(result.upsertedCount)await db.collection('change_version').updateOne({id:1},{$setOnInsert:{id:1},$inc:{version:1}},{upsert:true});
   }
  }
  return Response.json({notifications:await db.collection('notifications').find({owner:u.userId},{projection:{_id:0}}).sort({created:-1}).limit(100).toArray(),channel:'in-app'},{headers:{'Cache-Control':'no-store'}});
@@ -20,6 +20,6 @@ export async function POST(req){
  const u=await getAppUser();if(!u)return Response.json({error:'Hisobga kiring'},{status:401});
  const b=await req.json(),filter={owner:u.userId};if(b.all!==true)filter.id=String(b.id||'');
  const db=await getMongoDb(),updated=await db.collection('notifications').updateMany(filter,{$set:{read_at:Date.now()}});
- if(updated.modifiedCount)await db.collection('change_version').updateOne({id:1},{$setOnInsert:{id:1,version:0},$inc:{version:1}},{upsert:true});
+ if(updated.modifiedCount)await db.collection('change_version').updateOne({id:1},{$setOnInsert:{id:1},$inc:{version:1}},{upsert:true});
  return Response.json({ok:true});
 }

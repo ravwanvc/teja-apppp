@@ -51,7 +51,7 @@ export async function POST(req){try{
     if(next.payment_state!==old.payment_state&&next.payment_state==='refunded')await db.collection('notifications').updateOne({owner:old.buyer,kind:'refunded',entity:old.id},{$setOnInsert:{id:crypto.randomUUID(),owner:old.buyer,kind:'refunded',entity:old.id,created:now,read_at:null}},{upsert:true,session});
    }
    await db.collection('notifications').updateOne({owner:claim.owner,kind:'claim_updated',entity:claim.order_id},{$setOnInsert:{id:crypto.randomUUID(),owner:claim.owner,kind:'claim_updated',entity:claim.order_id,created:now,read_at:null}},{upsert:true,session});
-   await db.collection('change_version').updateOne({id:1},{$setOnInsert:{id:1,version:0},$inc:{version:1}},{upsert:true,session});
+   await db.collection('change_version').updateOne({id:1},{$setOnInsert:{id:1},$inc:{version:1}},{upsert:true,session});
   });}finally{await session.endSession();}
  }else throw Error('Noma’lum amal');
  return Response.json({ok:true});

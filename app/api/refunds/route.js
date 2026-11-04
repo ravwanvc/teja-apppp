@@ -30,7 +30,7 @@ export async function POST(req){try{
    await db.collection('partner_ledger').updateOne({id:'refund-'+o.id},{$setOnInsert:{id:'refund-'+o.id,partner_id:o.partner_id,kind:'refund',amount:-o.commission_due,order_id:o.id,actor:u.userId,reference,created:now}},{upsert:true,session});
   await db.collection('notifications').updateOne({owner:o.buyer,kind:'refunded',entity:o.id},{$setOnInsert:{id:'refund-record-'+o.id,owner:o.buyer,kind:'refunded',entity:o.id,created:now,read_at:null}},{upsert:true,session});
   await db.collection('admin_events').insertOne({id:crypto.randomUUID(),actor:u.userId,target:o.id,action:'refund_record',note:JSON.stringify({amount,reference}),created:now},{session});
-  await db.collection('change_version').updateOne({id:1},{$setOnInsert:{id:1,version:0},$inc:{version:1}},{upsert:true,session});
+  await db.collection('change_version').updateOne({id:1},{$setOnInsert:{id:1},$inc:{version:1}},{upsert:true,session});
  });}catch(error){
   if(error?.code===11000){
    const duplicate=await db.collection('refund_records').findOne({order_id:o.id});

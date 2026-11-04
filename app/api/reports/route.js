@@ -12,7 +12,7 @@ export async function POST(req){
   if(b.action==='resolve'){
    if(u.role!=='admin')return Response.json({error:'Faqat admin'},{status:403});
    const result=await db.collection('reports').updateOne({id:String(b.id)},{$set:{status:'resolved'}});
-   if(result.modifiedCount)await db.collection('change_version').updateOne({id:1},{$setOnInsert:{id:1,version:0},$inc:{version:1}},{upsert:true});
+   if(result.modifiedCount)await db.collection('change_version').updateOne({id:1},{$setOnInsert:{id:1},$inc:{version:1}},{upsert:true});
    return Response.json({ok:true});
   }
   if(!(await throttle(db,'report:'+u.userId,10)))return Response.json({error:'Bir oz kuting'},{status:429});
