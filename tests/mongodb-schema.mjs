@@ -8,8 +8,10 @@ import {
 
 function fakeDatabase(failOn) {
   const calls = [];
+  const citySeeds = [];
   return {
     calls,
+    citySeeds,
     failOn,
     collection(name) {
       return {
@@ -20,6 +22,9 @@ function fakeDatabase(failOn) {
             throw new Error('index creation failed');
           }
           return `${name}_${calls.length}`;
+        },
+        async updateOne(filter, update, options) {
+          citySeeds.push({ name, filter, update, options });
         },
         db: this,
       };
@@ -38,17 +43,27 @@ assert.equal(
   db.calls.length,
   Object.values(mongoIndexDefinitions).reduce((count, indexes) => count + indexes.length, 0),
 );
+assert.equal(db.citySeeds.length, 1);
+assert.deepEqual(db.citySeeds[0], {
+  name: "cities",
+  filter: { name: "Toshkent" },
+  update: { $setOnInsert: { name: "Toshkent", lat: 41.31, lng: 69.28 } },
+  options: { upsert: true },
+});
 await initializeMongoDatabase(db);
 assert.equal(db.calls.length, Object.values(mongoIndexDefinitions).reduce((count, indexes) => count + indexes.length, 0));
+assert.equal(db.citySeeds.length, 1);
 
 const retryDb = fakeDatabase(1);
 await assert.rejects(initializeMongoDatabase(retryDb), /index creation failed/);
+assert.equal(retryDb.citySeeds.length, 0);
 retryDb.calls.length = 0;
 await initializeMongoDatabase(retryDb);
 assert.equal(
   retryDb.calls.length,
   Object.values(mongoIndexDefinitions).reduce((count, indexes) => count + indexes.length, 0),
 );
+assert.equal(retryDb.citySeeds.length, 1);
 assert.equal(supportsMongoTransactions({ setName: 'rs0' }), true);
 assert.equal(supportsMongoTransactions({ msg: 'isdbgrid' }), true);
 assert.equal(supportsMongoTransactions({}), false);
