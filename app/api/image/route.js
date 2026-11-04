@@ -31,8 +31,20 @@ export async function POST(req) {
   } catch { return Response.json({ error: "Rasm yuklanmadi. Qayta urinib ko‘ring." }, { status: 500 }); }
 }
 export async function GET(req) {
-  const key=new URL(req.url).searchParams.get("id");if(!key)return new Response(null,{status:404});
-  let o;try{o=await (await getMongoDb()).collection('uploaded_files').findOne({key},{projection:{content_type:1,body:1}});}catch{return new Response(null,{status:503});}
-  if(!o)return new Response(null,{status:404});
-  return new Response(o.body,{headers:{"Content-Type":o.content_type,"Cache-Control":"public, max-age=86400","X-Content-Type-Options":"nosniff"}});
+  const key = new URL(req.url).searchParams.get("id");
+  if (!key) return new Response(null, { status: 404 });
+  let image;
+  try {
+    image = await env.BUCKET.get(key);
+  } catch {
+    return new Response(null, { status: 503 });
+  }
+  if (!image) return new Response(null, { status: 404 });
+  return new Response(image.body, {
+    headers: {
+      "Content-Type": image.httpMetadata.contentType,
+      "Cache-Control": "public, max-age=86400",
+      "X-Content-Type-Options": "nosniff",
+    },
+  });
 }

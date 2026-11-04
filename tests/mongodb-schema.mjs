@@ -79,12 +79,27 @@ const image = await bucket.get('test/image');
 assert.deepEqual([...image.body], [...original]);
 assert.equal(image.httpMetadata.contentType, 'image/png');
 assert.equal(await bucket.head('test/image'), true);
+
+const mongoBinary = Buffer.alloc(256, 0);
+original.forEach((value, index) => {
+  mongoBinary[index] = value;
+});
+stored.set('test/bson-image', {
+  content_type: 'image/webp',
+  body: { buffer: mongoBinary, position: original.length },
+});
+const bsonImage = await bucket.get('test/bson-image');
+assert.deepEqual([...bsonImage.body], [...original]);
+assert.equal(bsonImage.httpMetadata.contentType, 'image/webp');
+
 await assert.rejects(
   bucket.put('test/large', Buffer.alloc(2_000_001)),
   /2 MB/,
 );
 await bucket.delete('test/image');
+await bucket.delete('test/bson-image');
 assert.equal(await bucket.get('test/image'), null);
+assert.equal(await bucket.get('test/bson-image'), null);
 assert.equal(await bucket.head('test/image'), false);
 
-console.log('PASS: MongoDB indexes, transaction-topology detection, and binary storage are verified.');
+console.log('PASS: MongoDB indexes, transaction-topology detection, BSON binary image reads, and storage are verified.');
