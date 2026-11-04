@@ -25,8 +25,23 @@ export async function POST(req) {
     const b = await req.json();
     if (!["pay", "reject", "expire"].includes(b.outcome))
       throw Error("Amal noto‘g‘ri");
-    return Response.json(await simulatePayment(env, u.userId, b.id, b.outcome));
+    const result = await simulatePayment(env, u.userId, b.id, b.outcome);
+    if (result?.error)
+      return Response.json(
+        { error: result.error },
+        { status: result.status || 409 },
+      );
+    return Response.json(result);
   } catch (e) {
+    if (e.message === "Tizim xatosi") {
+      console.error(
+        `[teja] POST /api/payments/mock: ${e.name || "Error"} (${e.code || "unknown"})`,
+      );
+      return Response.json(
+        { error: "Sinov to‘lovi bajarilmadi. Birozdan keyin qayta urinib ko‘ring." },
+        { status: 500 },
+      );
+    }
     return Response.json({ error: e.message }, { status: 400 });
   }
 }
