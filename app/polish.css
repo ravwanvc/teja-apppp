@@ -1,0 +1,383 @@
+/* TEJA polish qatlami — eng oxirida yuklanadi.
+   1) Barcha sahifalarda ikki chetda katta bo‘sh joy (taxminan 5–6 sm)
+   2) Forma maydonlari, karta qo‘shish va logolar bir xil o‘lchamda
+   3) Premium 3D bank kartasi
+   O‘chirish uchun layout.tsx dagi importni olib tashlang. */
+
+:root {
+  --gutter: clamp(14px, 5vw, 36px);
+  --card-radius: 22px;
+}
+@media (min-width: 900px) {
+  :root {
+    /* 1100px da ~120px, 1440px da ~158px, 1920px da 220px (≈ 5.8 sm) */
+    --gutter: clamp(48px, 11vw, 220px);
+  }
+}
+
+/* ---------- 1. Yon bo‘shliqlar: hamma sahifada bir xil ---------- */
+header,
+footer,
+.appearance-bar,
+main:not(.auth-shell):not(.auth-card) {
+  box-sizing: border-box;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: var(--gutter);
+}
+main:not(.auth-shell):not(.auth-card) {
+  width: 100%;
+  padding-top: 32px;
+  padding-bottom: 56px;
+}
+main.auth-card {
+  width: min(620px, calc(100% - 2 * var(--gutter)));
+  max-width: 620px;
+  margin-inline: auto;
+}
+section.dashboard {
+  padding-inline: 0;
+}
+/* Eng keng ekranlarda mazmun juda cho‘zilib ketmasin */
+@media (min-width: 2000px) {
+  header,
+  footer,
+  .appearance-bar,
+  main:not(.auth-shell):not(.auth-card) {
+    padding-inline: max(var(--gutter), calc((100vw - 1560px) / 2));
+  }
+}
+.auth-shell .auth-card {
+  padding: clamp(24px, 4vw, 48px);
+}
+
+/* ---------- 2. Umumiy forma ritmi ---------- */
+.card-form,
+.custom-card-form,
+.panel-card,
+.panel-welcome,
+.partner-form {
+  box-sizing: border-box;
+}
+.custom-card-form {
+  padding: clamp(22px, 3vw, 36px);
+  border-radius: var(--card-radius);
+}
+.custom-card-form h2 {
+  margin: 6px 0 18px;
+  font-size: clamp(24px, 3vw, 30px);
+  letter-spacing: -0.6px;
+}
+.custom-card-form form {
+  display: grid;
+  gap: 20px;
+}
+.custom-card-form label {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  font-weight: 600;
+  font-size: 13px;
+}
+.custom-card-form input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 54px;
+  padding: 0 16px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+}
+.custom-card-form .card-detail-fields {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+/* Telefon: prefiks va raqam bir qatorda, balandligi boshqa maydonlar bilan teng */
+.custom-card-form .phone-field {
+  display: flex;
+  align-items: center;
+  height: 54px;
+  padding-left: 16px;
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+.custom-card-form .phone-field input {
+  height: 100%;
+  border: 0;
+  background: transparent;
+  padding-left: 12px;
+}
+.custom-card-form .phone-field > span {
+  font-size: 14px;
+  font-weight: 700;
+  opacity: 0.8;
+}
+.custom-card-form > small {
+  display: block;
+  margin-top: 14px;
+  line-height: 1.6;
+}
+.custom-card-form .full {
+  height: 54px;
+  border-radius: 14px;
+  font-size: 15px;
+}
+
+/* ---------- 3. Bir xil logolar (Uzcard / Humo / Visa) ---------- */
+.network-logo {
+  display: block;
+  width: 64px;
+  height: 40px;
+  padding: 0;
+  object-fit: contain;
+  object-position: center;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  flex: none;
+}
+/* karta raqami maydonidagi logo: kesilmaydi, o‘rtada turadi */
+.card-number-field input {
+  padding-right: 92px;
+}
+.card-number-field .network-logo {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 62px;
+  height: 38px;
+}
+.card-number-field > svg {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.7;
+}
+/* tayyor namuna tugmalari: uchalasi bir xil kattalikda */
+.demo-presets {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 4px 0 22px;
+}
+.demo-presets .preset-tile {
+  display: grid;
+  place-items: center;
+  height: 84px;
+  padding: 0;
+  border-radius: 16px;
+  background: var(--surface, #fff);
+  border: 1px solid var(--line, #dce6e1);
+  transition:
+    transform 0.3s var(--ease-out, ease),
+    border-color 0.2s,
+    box-shadow 0.3s;
+}
+.demo-presets .preset-tile .network-logo {
+  width: 100px;
+  height: 62px;
+  box-shadow: none;
+}
+.demo-presets .preset-tile:hover {
+  transform: translateY(-3px);
+  border-color: #3f9b78;
+  box-shadow: 0 14px 24px -14px rgba(23, 110, 81, 0.7);
+}
+.wallet-real-logos > span {
+  width: 110px;
+  height: 48px;
+}
+
+/* ---------- 4. Premium bank kartasi ---------- */
+.wallet-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: start;
+}
+.wallet-grid > section:first-child {
+  display: grid;
+  gap: 22px;
+  align-content: start;
+}
+.wallet-grid > section:first-child h2 {
+  margin: 0;
+}
+
+.bank-card {
+  --c1: #1a7a5a;
+  --c2: #0b3b33;
+  --accent: #9be3c0;
+}
+.bank-card,
+.bank-card.visa,
+.bank-card.humo,
+.bank-card.uzcard {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1.586;
+  margin: 0;
+  padding: clamp(18px, 2.4vw, 26px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0;
+  border-radius: 24px;
+  color: #fff;
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgba(255, 255, 255, 0.22), transparent 55%),
+    radial-gradient(90% 80% at 0% 100%, rgba(0, 0, 0, 0.35), transparent 60%),
+    linear-gradient(135deg, var(--c1), var(--c2));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.25) inset,
+    0 40px 50px -30px rgba(0, 0, 0, 0.7),
+    0 12px 24px -12px rgba(0, 0, 0, 0.4);
+}
+.bank-card.uzcard {
+  --c1: #1d5fc4;
+  --c2: #0a2a63;
+  --accent: #9cc4ff;
+}
+.bank-card.humo {
+  --c1: #1f4a56;
+  --c2: #0d232b;
+  --accent: #e8c56b;
+}
+.bank-card.visa {
+  --c1: #3a4fd8;
+  --c2: #141c5e;
+  --accent: #b6c0ff;
+}
+/* yengil gologramma chiziqlari */
+.bank-card::before {
+  content: "";
+  position: absolute;
+  inset: -40% -20%;
+  z-index: -1;
+  background: repeating-linear-gradient(
+    115deg,
+    transparent 0 22px,
+    rgba(255, 255, 255, 0.045) 22px 24px
+  );
+  transform: translateZ(0);
+}
+.bank-card > * {
+  position: relative;
+  z-index: 1;
+}
+.bc-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.bc-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  opacity: 0.95;
+}
+.bank-card .network-logo {
+  width: 62px;
+  height: 38px;
+  border-radius: 9px;
+  box-shadow: 0 6px 14px -6px rgba(0, 0, 0, 0.55);
+}
+.bc-chip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+.bc-chip i {
+  display: block;
+  width: 44px;
+  height: 33px;
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, transparent 30%, rgba(0, 0, 0, 0.25) 30% 32%, transparent 32% 68%, rgba(0, 0, 0, 0.25) 68% 70%, transparent 70%),
+    linear-gradient(0deg, transparent 45%, rgba(0, 0, 0, 0.25) 45% 48%, transparent 48%),
+    linear-gradient(135deg, #f5dc93, #c99a3b 55%, #f0cf7a);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+.bank-card .bc-number {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: clamp(18px, 2.6vw, 24px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+.bc-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+.bc-bottom > div {
+  display: grid;
+  gap: 4px;
+}
+.bank-card .bc-bottom small {
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  opacity: 0.7;
+  margin: 0;
+}
+.bc-bottom span {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.bank-card .bc-bottom button {
+  align-self: auto;
+  padding: 9px 14px;
+  font-size: 12px;
+  border-radius: 12px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.bank-card .bc-bottom button:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- 5. Kichik ekranlar ---------- */
+@media (max-width: 860px) {
+  .wallet-grid {
+    grid-template-columns: 1fr;
+  }
+  .bank-card {
+    max-width: 100%;
+  }
+}
+@media (max-width: 520px) {
+  .custom-card-form .card-detail-fields {
+    grid-template-columns: 1fr;
+  }
+  .demo-presets {
+    gap: 8px;
+  }
+  .demo-presets .preset-tile {
+    height: 70px;
+  }
+  .demo-presets .preset-tile .network-logo {
+    width: 78px;
+    height: 48px;
+  }
+  .card-number-field input {
+    padding-right: 84px;
+  }
+}

@@ -1,0 +1,6 @@
+flowchart LR
+  U[Brauzer / Mobil ilova] --> V[Vercel: Next.js 16<br/>sahifalar + app/api/*]
+  V -->|MongoDB collections<br/>foydalanuvchi, mahsulot, buyurtma, to‘lov| M[(MongoDB Atlas<br/>yagona doimiy baza)]
+  V -->|Rasm binary fayllari| M
+  C[MongoDB Compass] --> M
+  V -.-> G[Gemini / Maps<br/>ixtiyoriy]

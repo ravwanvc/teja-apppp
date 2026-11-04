@@ -1,0 +1,14 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> teja-mobile@0.1.0 test
+> jest --runInBand
+
+PASS tests/checkout.test.tsx
+  ✓ 10% uses ceil so the two parts exactly equal the total (10 ms)
+  ✓ disabled checkout cannot fire a payment request (112 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        5.036 s, estimated 9 s
+Ran all test suites.

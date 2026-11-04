@@ -1,0 +1,22 @@
+import {test,expect} from '@playwright/test';
+const origin='http://localhost:5173';
+const png=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aZncAAAAASUVORK5CYII=','base64');
+test('browser registration/SMS → mock checkout → receipt; seller fulfilment and review API',async({page,playwright})=>{
+ page.on('pageerror',e=>console.log('BROWSER ERROR',e.message));page.on('console',m=>{if(m.type()==='error')console.log('CONSOLE',m.text())});
+ const suffix=String(Date.now()).slice(-7),sellerPhone='+99891'+suffix,buyerPhone='90'+suffix;
+ const seller=await playwright.request.newContext({baseURL:origin,extraHTTPHeaders:{Origin:origin}});
+ const post=async(ctx,url,data)=>{const r=await ctx.post(url,{data});expect(r.ok(),await r.text()).toBeTruthy();return r.json()};
+ await post(seller,'/api/phone',{action:'send',purpose:'register',phone:sellerPhone});
+ await post(seller,'/api/auth',{action:'register',phone:sellerPhone,password:'e2e-password',code:'123456',name:'E2E Seller',role:'seller'});
+ const upload=await seller.post('/api/image',{multipart:{file:{name:'food.png',mimeType:'image/png',buffer:png}}});expect(upload.ok(),await upload.text()).toBeTruthy();
+ const {url}=await upload.json();const title='E2E Non '+suffix;
+ const product=await post(seller,'/api/data',{action:'create',requestId:crypto.randomUUID(),product:{title,shop:'E2E Bakery',category:'Non va pishiriqlar',image:url,price:1000,original:2000,stock:4,address:'Toshkent',lat:41.31,lng:69.28,allergens:'Un',storage:'Salqin',until:Date.now()+86400000}});
+ await page.goto('/register');await expect(page.locator('form')).toHaveAttribute('data-ready','true');await page.getByLabel('Ism / Имя').fill('E2E Buyer');await page.getByLabel('Telefon / Телефон (+998)').fill(buyerPhone);await page.getByLabel('Parol / Пароль (8–128)').fill('e2e-password');await page.getByRole('button',{name:'SMS yuborish / Отправить SMS'}).click();await expect(page.getByRole('status')).toContainText('SINOV SMS');await page.getByLabel('SMS kodi / Код SMS').fill('123456');await page.getByRole('button',{name:'Davom etish / Продолжить'}).click();await page.waitForURL('/');
+ await page.goto('/?product='+product.id);const dialog=page.getByRole('dialog');await expect(dialog).toBeVisible();await dialog.locator('input[type="checkbox"]').check();await dialog.getByRole('button',{name:/Payme orqali/}).click();await page.waitForURL(/mock-payment/);await page.getByRole('button',{name:'To‘lash / Оплатить',exact:true}).click();await page.waitForURL(/view=orders/);await expect(page.getByText('SINOV — pul olinmagan').first()).toBeVisible();
+ const state=await page.request.get('/api/data');const order=(await state.json()).orders.find(o=>o.product===product.id);expect(order.payment_state).toBe('test');expect(order.code).toHaveLength(8);expect(order.receipt_no).toBeGreaterThan(0);
+ const receipt=await page.request.get('/api/receipt?id='+order.id);expect(await receipt.text()).toContain('SINOV');
+ await post(seller,'/api/data',{action:'collect',id:order.id,code:order.code});
+ const review=await page.request.post('/api/data',{headers:{Origin:origin},data:{action:'review',id:order.id,rating:5,comment:'E2E tekshiruv'}});expect(review.ok(),await review.text()).toBeTruthy();
+ await page.goto('/p/'+product.id);await expect(page.getByRole('heading',{name:title,exact:true})).toBeVisible();await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content',title);
+ await page.screenshot({path:'/tmp/teja-product.png',fullPage:true});await seller.dispose();
+});

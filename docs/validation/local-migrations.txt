@@ -1,0 +1,262 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> teja@0.1.0 db:migrate:local
+> node scripts/db-migrate.mjs apply
+
+Local D1 database: site-creator-d1 (.wrangler/state)
+Tables present: 0; migrations recorded: 0/9
+Plan: apply
+  Will be applied: 0000_whole_kate_bishop.sql, 0001_open_tenebrous.sql, 0002_silky_starbolt.sql, 0003_bored_mister_sinister.sql, 0004_loud_leper_queen.sql, 0005_motionless_the_liberteens.sql, 0006_faulty_wolfpack.sql, 0007_wealthy_prowler.sql, 0008_mock_and_mobile.sql
+Backup written to .wrangler/backups/d1-2026-10-28T12-27-20-110Z
+▲ [WARNING] Proxy environment variables detected. We'll use your proxy for fetch requests.
+
+
+
+ ⛅️ wrangler 4.92.0
+───────────────────
+Resource location: local 
+
+Use --remote if you want to access the remote instance.
+
+Migrations to be applied:
+┌────────────────────────────────────┐
+│ name                               │
+├────────────────────────────────────┤
+│ 0000_whole_kate_bishop.sql         │
+├────────────────────────────────────┤
+│ 0001_open_tenebrous.sql            │
+├────────────────────────────────────┤
+│ 0002_silky_starbolt.sql            │
+├────────────────────────────────────┤
+│ 0003_bored_mister_sinister.sql     │
+├────────────────────────────────────┤
+│ 0004_loud_leper_queen.sql          │
+├────────────────────────────────────┤
+│ 0005_motionless_the_liberteens.sql │
+├────────────────────────────────────┤
+│ 0006_faulty_wolfpack.sql           │
+├────────────────────────────────────┤
+│ 0007_wealthy_prowler.sql           │
+├────────────────────────────────────┤
+│ 0008_mock_and_mobile.sql           │
+└────────────────────────────────────┘
+? About to apply 9 migration(s)
+Your database may not be available to serve requests during the migration, continue?
+🤖 Using fallback value in non-interactive context: yes
+🌀 Executing on local database DB (00000000-0000-4000-8000-000000000000) from .wrangler/state/v3/d1:
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+🚣 10 commands executed successfully.
+┌────────────────────────────────────┬────────┐
+│ name                               │ status │
+├────────────────────────────────────┼────────┤
+│ 0000_whole_kate_bishop.sql         │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0001_open_tenebrous.sql            │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0002_silky_starbolt.sql            │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0003_bored_mister_sinister.sql     │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0004_loud_leper_queen.sql          │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0005_motionless_the_liberteens.sql │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0006_faulty_wolfpack.sql           │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0007_wealthy_prowler.sql           │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0008_mock_and_mobile.sql           │ 🕒️    │
+└────────────────────────────────────┴────────┘
+🌀 Executing on local database DB (00000000-0000-4000-8000-000000000000) from .wrangler/state/v3/d1:
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+🚣 18 commands executed successfully.
+┌────────────────────────────────────┬────────┐
+│ name                               │ status │
+├────────────────────────────────────┼────────┤
+│ 0000_whole_kate_bishop.sql         │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0001_open_tenebrous.sql            │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0002_silky_starbolt.sql            │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0003_bored_mister_sinister.sql     │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0004_loud_leper_queen.sql          │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0005_motionless_the_liberteens.sql │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0006_faulty_wolfpack.sql           │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0007_wealthy_prowler.sql           │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0008_mock_and_mobile.sql           │ 🕒️    │
+└────────────────────────────────────┴────────┘
+🌀 Executing on local database DB (00000000-0000-4000-8000-000000000000) from .wrangler/state/v3/d1:
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+🚣 12 commands executed successfully.
+┌────────────────────────────────────┬────────┐
+│ name                               │ status │
+├────────────────────────────────────┼────────┤
+│ 0000_whole_kate_bishop.sql         │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0001_open_tenebrous.sql            │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0002_silky_starbolt.sql            │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0003_bored_mister_sinister.sql     │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0004_loud_leper_queen.sql          │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0005_motionless_the_liberteens.sql │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0006_faulty_wolfpack.sql           │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0007_wealthy_prowler.sql           │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0008_mock_and_mobile.sql           │ 🕒️    │
+└────────────────────────────────────┴────────┘
+🌀 Executing on local database DB (00000000-0000-4000-8000-000000000000) from .wrangler/state/v3/d1:
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+🚣 5 commands executed successfully.
+┌────────────────────────────────────┬────────┐
+│ name                               │ status │
+├────────────────────────────────────┼────────┤
+│ 0000_whole_kate_bishop.sql         │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0001_open_tenebrous.sql            │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0002_silky_starbolt.sql            │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0003_bored_mister_sinister.sql     │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0004_loud_leper_queen.sql          │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0005_motionless_the_liberteens.sql │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0006_faulty_wolfpack.sql           │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0007_wealthy_prowler.sql           │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0008_mock_and_mobile.sql           │ 🕒️    │
+└────────────────────────────────────┴────────┘
+🌀 Executing on local database DB (00000000-0000-4000-8000-000000000000) from .wrangler/state/v3/d1:
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+🚣 11 commands executed successfully.
+┌────────────────────────────────────┬────────┐
+│ name                               │ status │
+├────────────────────────────────────┼────────┤
+│ 0000_whole_kate_bishop.sql         │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0001_open_tenebrous.sql            │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0002_silky_starbolt.sql            │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0003_bored_mister_sinister.sql     │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0004_loud_leper_queen.sql          │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0005_motionless_the_liberteens.sql │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0006_faulty_wolfpack.sql           │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0007_wealthy_prowler.sql           │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0008_mock_and_mobile.sql           │ 🕒️    │
+└────────────────────────────────────┴────────┘
+🌀 Executing on local database DB (00000000-0000-4000-8000-000000000000) from .wrangler/state/v3/d1:
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+🚣 9 commands executed successfully.
+┌────────────────────────────────────┬────────┐
+│ name                               │ status │
+├────────────────────────────────────┼────────┤
+│ 0000_whole_kate_bishop.sql         │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0001_open_tenebrous.sql            │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0002_silky_starbolt.sql            │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0003_bored_mister_sinister.sql     │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0004_loud_leper_queen.sql          │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0005_motionless_the_liberteens.sql │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0006_faulty_wolfpack.sql           │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0007_wealthy_prowler.sql           │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0008_mock_and_mobile.sql           │ 🕒️    │
+└────────────────────────────────────┴────────┘
+🌀 Executing on local database DB (00000000-0000-4000-8000-000000000000) from .wrangler/state/v3/d1:
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+🚣 2 commands executed successfully.
+┌────────────────────────────────────┬────────┐
+│ name                               │ status │
+├────────────────────────────────────┼────────┤
+│ 0000_whole_kate_bishop.sql         │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0001_open_tenebrous.sql            │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0002_silky_starbolt.sql            │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0003_bored_mister_sinister.sql     │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0004_loud_leper_queen.sql          │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0005_motionless_the_liberteens.sql │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0006_faulty_wolfpack.sql           │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0007_wealthy_prowler.sql           │ 🕒️    │
+├────────────────────────────────────┼────────┤
+│ 0008_mock_and_mobile.sql           │ 🕒️    │
+└────────────────────────────────────┴────────┘
+🌀 Executing on local database DB (00000000-0000-4000-8000-000000000000) from .wrangler/state/v3/d1:
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+🚣 7 commands executed successfully.
+┌────────────────────────────────────┬────────┐
+│ name                               │ status │
+├────────────────────────────────────┼────────┤
+│ 0000_whole_kate_bishop.sql         │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0001_open_tenebrous.sql            │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0002_silky_starbolt.sql            │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0003_bored_mister_sinister.sql     │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0004_loud_leper_queen.sql          │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0005_motionless_the_liberteens.sql │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0006_faulty_wolfpack.sql           │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0007_wealthy_prowler.sql           │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0008_mock_and_mobile.sql           │ 🕒️    │
+└────────────────────────────────────┴────────┘
+🌀 Executing on local database DB (00000000-0000-4000-8000-000000000000) from .wrangler/state/v3/d1:
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+🚣 49 commands executed successfully.
+┌────────────────────────────────────┬────────┐
+│ name                               │ status │
+├────────────────────────────────────┼────────┤
+│ 0000_whole_kate_bishop.sql         │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0001_open_tenebrous.sql            │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0002_silky_starbolt.sql            │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0003_bored_mister_sinister.sql     │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0004_loud_leper_queen.sql          │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0005_motionless_the_liberteens.sql │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0006_faulty_wolfpack.sql           │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0007_wealthy_prowler.sql           │ ✅     │
+├────────────────────────────────────┼────────┤
+│ 0008_mock_and_mobile.sql           │ ✅     │
+└────────────────────────────────────┴────────┘
+OK: all 9 migrations are applied.

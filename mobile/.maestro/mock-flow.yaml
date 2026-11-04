@@ -1,0 +1,15 @@
+# Seed a disposable buyer account through /api/phone + /api/auth before this flow.
+# Run: maestro test -e TEST_PHONE=+998901234567 mobile/.maestro/mock-flow.yaml
+appId: uz.teja.app
+---
+- launchApp
+- tapOn: "Kirish / Вход"
+- tapOn: "Telefon / Телефон"
+- eraseText
+- inputText: ${TEST_PHONE}
+- tapOn: "SMS yuborish / Отправить SMS"
+- assertVisible: "SINOV SMS.*"
+- tapOn: "SMS kodi / Код SMS"
+- inputText: "123456"
+- tapOn: "Tasdiqlash / Подтвердить"
+- assertVisible: "Takliflar / Предложения"

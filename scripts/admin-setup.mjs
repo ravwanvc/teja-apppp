@@ -1,0 +1,8 @@
+import {createInterface} from 'node:readline/promises';
+import {stdin,stdout} from 'node:process';
+import {phoneNumber,passwordHash} from '../lib/password.js';
+import {readLocalEnv,writeLocalEnv} from './local-env.mjs';
+if(!stdin.isTTY){console.error('Bu buyruqni interaktiv terminalda ishga tushiring.');process.exit(1)}
+const rl=createInterface({input:stdin,output:stdout});const raw=await rl.question('Admin telefoni (+998 bilan yoki 9 raqam): ');rl.close();const phone=phoneNumber(raw);if(!phone){console.error('Telefon noto‘g‘ri: +998 va 9 raqam kerak.');process.exit(1)}
+function hidden(prompt){stdout.write(prompt);return new Promise((resolve,reject)=>{let value='';stdin.setRawMode(true);stdin.resume();stdin.setEncoding('utf8');function finish(){stdin.off('data',receive);stdin.setRawMode(false);stdin.pause();stdout.write('\n')}function receive(data){for(const c of data){if(c==='\u0003'){finish();reject(Error('Bekor qilindi'));return}if(c==='\r'||c==='\n'){finish();resolve(value);return}if(c==='\u007f'||c==='\b')value=value.slice(0,-1);else if(c>=' '&&value.length<129)value+=c}}stdin.on('data',receive)})}
+try{const password=await hidden('Yangi parol (12–128 belgi, yashirin): ');if(password.length<12||password.length>128)throw Error('Parol 12–128 belgi bo‘lsin.');const again=await hidden('Parolni takrorlang: ');if(password!==again)throw Error('Parollar mos emas. Hech narsa o‘zgarmadi.');writeLocalEnv({...readLocalEnv(),ADMIN_PHONE:phone,ADMIN_PASSWORD_HASH:await passwordHash(password)});console.log('Admin sozlandi. Serverni qayta ishga tushiring: npm start. /login orqali kiring.')}catch(e){console.error(e.message);process.exitCode=1}

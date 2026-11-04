@@ -1,0 +1,137 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> teja@0.1.0 build
+> node scripts/run-framework.mjs build
+
+
+  vinext build  (Vite 8.0.13)
+
+▲ [WARNING] Proxy environment variables detected. We'll use your proxy for fetch requests.
+
+
+[1/5] analyze client references...
+[2K
+transforming...[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "Leaf" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "Sun" in barrel export map
+✓ 291 modules transformed.
+rendering chunks...
+✓ built in 2.48s
+[2/5] analyze server references...
+[2K
+transforming...[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "Leaf" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "Sun" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "Search" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "MapPin" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "CreditCard" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "ArrowLeft" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "MapPin" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "Camera" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "CreditCard" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "Search" in barrel export map
+✓ 2097 modules transformed.
+rendering chunks...
+[PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+  - vinext:middleware-server-only (45%)
+  - vinext:jsx-in-js (12%)
+  - alias (10%)
+  - rsc:virtual-client-package (7%)
+  - vinext:css-data-url (6%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 8.52s
+[3/5] build rsc environment...
+[2K
+transforming...[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "Leaf" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "Sun" in barrel export map
+✓ 288 modules transformed.
+rendering chunks...
+computing gzip size...
+✓ built in 9.89s
+[4/5] build client environment...
+[2K
+transforming...✓ 2105 modules transformed.
+rendering chunks...
+computing gzip size...
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+  - vinext:middleware-server-only (41%)
+  - rsc:virtual-client-package (11%)
+  - vinext:jsx-in-js (11%)
+  - alias (9%)
+  - vinext:css-data-url (8%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 6.84s
+[5/5] build ssr environment...
+[2K
+transforming...[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "Sun" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "Leaf" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "Search" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "MapPin" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "MapPin" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "CreditCard" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "ArrowLeft" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "Camera" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "CreditCard" in barrel export map
+[vinext:optimize-imports] skipping "lucide-react": could not resolve specifier "Search" in barrel export map
+✓ 2099 modules transformed.
+rendering chunks...
+computing gzip size...
+[PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+  - vinext:middleware-server-only (38%)
+  - rsc:virtual-client-package (13%)
+  - vinext:css-data-url (10%)
+  - alias (9%)
+  - vinext:jsx-in-js (7%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 5.95s
+
+  Route (app)
+  ┌ ƒ /                  
+  ├ ƒ /admin             
+  ├ ? /admin/login       
+  ├ λ /api/account       
+  ├ λ /api/auth          
+  ├ λ /api/cards         
+  ├ λ /api/changes       
+  ├ λ /api/data          
+  ├ λ /api/drafts        
+  ├ λ /api/geo           
+  ├ λ /api/image         
+  ├ λ /api/notifications 
+  ├ λ /api/payments      
+  ├ λ /api/payments/card 
+  ├ λ /api/payments/click
+  ├ λ /api/payments/mock 
+  ├ λ /api/payments/payme
+  ├ λ /api/phone         
+  ├ λ /api/product       
+  ├ λ /api/products      
+  ├ λ /api/receipt       
+  ├ λ /api/refunds       
+  ├ λ /api/report        
+  ├ λ /api/reports       
+  ├ λ /api/services      
+  ├ ? /delete-account    
+  ├ ƒ /legal/:slug       
+  ├ ? /login             
+  ├ ? /mock-payment      
+  ├ ƒ /p/:id             
+  ├ ? /register          
+  ├ λ /robots.txt        
+  ├ ƒ /s/:id             
+  └ λ /sitemap.xml       
+
+  λ API  ƒ Dynamic  ? Unknown
+
+  ? Some routes could not be classified. vinext currently uses static analysis
+    and cannot detect dynamic API usage (headers(), cookies(), etc.) at build time.
+    Automatic classification will be improved in a future release.
+
+  Build complete. Run `vinext start` to start the production server.
+

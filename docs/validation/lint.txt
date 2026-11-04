@@ -1,0 +1,92 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> teja@0.1.0 lint
+> eslint . --ignore-pattern dist --ignore-pattern .next
+
+
+/workspace/scratch/c1ee9058f7f6/teja/app/account-tools.jsx
+  44:10  warning  Do not use `location.assign()` to navigate to internal Next.js pages. Use `redirect()` in the render phase, or `useRouter().push()` in Client Components' event handlers instead. See: https://nextjs.org/docs/messages/no-location-assign-relative-destination  @next/next/no-location-assign-relative-destination
+
+/workspace/scratch/c1ee9058f7f6/teja/app/account.jsx
+   30:5   warning  Do not use `location.assign()` to navigate to internal Next.js pages. Use `redirect()` in the render phase, or `useRouter().push()` in Client Components' event handlers instead. See: https://nextjs.org/docs/messages/no-location-assign-relative-destination                          @next/next/no-location-assign-relative-destination
+  121:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/workspace/scratch/c1ee9058f7f6/teja/app/api/receipt/route.js
+  1:10  warning  'mockPayments' is defined but never used  @typescript-eslint/no-unused-vars
+
+/workspace/scratch/c1ee9058f7f6/teja/app/checkout.jsx
+    5:17  warning  'capitalize' is defined but never used                                                                                                                                                                                                                                                   @typescript-eslint/no-unused-vars
+    6:10  warning  'MoneyInput' is defined but never used                                                                                                                                                                                                                                                   @typescript-eslint/no-unused-vars
+   21:42  warning  'me' is defined but never used                                                                                                                                                                                                                                                           @typescript-eslint/no-unused-vars
+  146:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/workspace/scratch/c1ee9058f7f6/teja/app/demo-wallet.jsx
+  217:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  220:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/workspace/scratch/c1ee9058f7f6/teja/app/discovery-map.jsx
+  153:6   warning  React Hook useEffect has a missing dependency: 'fit'. Either include it or remove the dependency array                                                                                                                                                                                   react-hooks/exhaustive-deps
+  268:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/workspace/scratch/c1ee9058f7f6/teja/app/listing-studio.jsx
+   88:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  177:6   warning  React Hook useEffect has a missing dependency: 'onBusy'. Either include it or remove the dependency array. If 'onBusy' changes too often, find the parent component that defines it and wrap that definition in useCallback                                                              react-hooks/exhaustive-deps
+  350:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  538:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/workspace/scratch/c1ee9058f7f6/teja/app/map-picker.jsx
+  76:6  warning  React Hook useEffect has missing dependencies: 'initial.address', 'initial.lat', and 'initial.lng'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+/workspace/scratch/c1ee9058f7f6/teja/app/market-client.jsx
+    10:10  warning  'listingState' is defined but never used                                                                                                                                                                                                                                                 @typescript-eslint/no-unused-vars
+    11:17  warning  'capitalize' is defined but never used                                                                                                                                                                                                                                                   @typescript-eslint/no-unused-vars
+    14:3   warning  'MoneyInput' is defined but never used                                                                                                                                                                                                                                                   @typescript-eslint/no-unused-vars
+    50:3   warning  'Upload' is defined but never used                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+    55:3   warning  'SlidersHorizontal' is defined but never used                                                                                                                                                                                                                                            @typescript-eslint/no-unused-vars
+   138:6   warning  React Hook useEffect has a missing dependency: 'refresh'. Either include it or remove the dependency array                                                                                                                                                                               react-hooks/exhaustive-deps
+   212:6   warning  React Hook useEffect has a missing dependency: 'refresh'. Either include it or remove the dependency array                                                                                                                                                                               react-hooks/exhaustive-deps
+   248:7   warning  Do not use `location.href` to navigate to internal Next.js pages. Use `redirect()` in the render phase, or `useRouter().push()` in Client Components' event handlers instead. See: https://nextjs.org/docs/messages/no-location-assign-relative-destination                              @next/next/no-location-assign-relative-destination
+   351:9   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+   507:30  warning  Do not use `location.assign()` to navigate to internal Next.js pages. Use `redirect()` in the render phase, or `useRouter().push()` in Client Components' event handlers instead. See: https://nextjs.org/docs/messages/no-location-assign-relative-destination                          @next/next/no-location-assign-relative-destination
+   636:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+   818:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  1443:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/workspace/scratch/c1ee9058f7f6/teja/app/market-tools.jsx
+  111:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/workspace/scratch/c1ee9058f7f6/teja/app/mock-payment/page.jsx
+  19:7  warning  Do not use `location.assign()` to navigate to internal Next.js pages. Use `redirect()` in the render phase, or `useRouter().push()` in Client Components' event handlers instead. See: https://nextjs.org/docs/messages/no-location-assign-relative-destination  @next/next/no-location-assign-relative-destination
+
+/workspace/scratch/c1ee9058f7f6/teja/app/p/[id]/page.jsx
+  44:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/workspace/scratch/c1ee9058f7f6/teja/app/photo-picker.jsx
+  127:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/workspace/scratch/c1ee9058f7f6/teja/app/s/[id]/page.jsx
+  37:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/workspace/scratch/c1ee9058f7f6/teja/app/wallet.jsx
+   17:5   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  218:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  398:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  401:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/workspace/scratch/c1ee9058f7f6/teja/tests/card-checkout.mjs
+  10:3  warning  'seller' is defined but never used  @typescript-eslint/no-unused-vars
+
+/workspace/scratch/c1ee9058f7f6/teja/tests/demo-flow.mjs
+  6:3  warning  'image' is defined but never used  @typescript-eslint/no-unused-vars
+
+/workspace/scratch/c1ee9058f7f6/teja/tests/listing-upgrade.mjs
+  9:3  warning  'seller' is defined but never used  @typescript-eslint/no-unused-vars
+
+/workspace/scratch/c1ee9058f7f6/teja/tests/real-flows.mjs
+  91:55  warning  'paymentUrl' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/workspace/scratch/c1ee9058f7f6/teja/worker/index.ts
+  4:1  warning  Assign object to a variable before exporting as module default  import/no-anonymous-default-export
+
+✖ 44 problems (0 errors, 44 warnings)
+

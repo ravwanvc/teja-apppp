@@ -1,0 +1,39 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> teja@0.1.0 test
+> node --no-warnings tests/real-flows.mjs && node --no-warnings tests/card-checkout.mjs && node --no-warnings tests/role-access.mjs && node --no-warnings tests/listing-upgrade.mjs && node --no-warnings tests/map-discovery.mjs && node --no-warnings tests/format-vision.mjs && node --no-warnings tests/migration-plan.mjs && node --no-warnings tests/schema-not-ready.mjs && node tests/card-form.mjs && node tests/local-admin.mjs && node --no-warnings tests/demo-flow.mjs && node tests/directions.mjs && node --no-warnings tests/mobile-session.mjs && node --no-warnings tests/moderation.mjs
+
+[teja] POST /api/data: Olib ketish vaqti allaqachon belgilangan yoki buyurtma faol emas
+PASS: password registration, admin isolation, sessions/logout/rotation, CSRF, image moderation, inventory, Payme/Click authentication, amount checks, replay safety, atomic receipts, cancellation, expiry, bank-token validation, wallet isolation and SMS verification. Provider HTTP responses mocked; no live money/SMS.
+[teja] POST /api/data: Olib ketish vaqti allaqachon belgilangan yoki buyurtma faol emas
+PASS: password registration, admin isolation, sessions/logout/rotation, CSRF, image moderation, inventory, Payme/Click authentication, amount checks, replay safety, atomic receipts, cancellation, expiry, bank-token validation, wallet isolation and SMS verification. Provider HTTP responses mocked; no live money/SMS.
+[teja] POST /api/data: Karta to‘lovi tekshirilmoqda. Avval provayder holatini tekshiring.
+PASS: card ownership, exact 10%, one charge and receipt, concurrent retry, uncertain timeout holds, verified reconciliation, mismatched amount rejection, cancellation, late refund queue and admin unified login. Provider mocked.
+[teja] POST /api/data: Olib ketish vaqti allaqachon belgilangan yoki buyurtma faol emas
+PASS: password registration, admin isolation, sessions/logout/rotation, CSRF, image moderation, inventory, Payme/Click authentication, amount checks, replay safety, atomic receipts, cancellation, expiry, bank-token validation, wallet isolation and SMS verification. Provider HTTP responses mocked; no live money/SMS.
+PASS: customer cannot publish, upload, edit inventory, collect orders, access drafts or sales reports; strict phone format, role routing, seller access and submitted-role escalation protection.
+[teja] POST /api/data: Olib ketish vaqti allaqachon belgilangan yoki buyurtma faol emas
+PASS: password registration, admin isolation, sessions/logout/rotation, CSRF, image moderation, inventory, Payme/Click authentication, amount checks, replay safety, atomic receipts, cancellation, expiry, bank-token validation, wallet isolation and SMS verification. Provider HTTP responses mocked; no live money/SMS.
+PASS: private versioned drafts, stale writes rejected, publication removes matching draft, retry does not duplicate products or stock, listing validation and photo dimensions.
+PASS: exact-coordinate grouping, distance units, radius filtering, missing coordinates and unavailable listings.
+PASS: dot money formatting, capitalization, card grouping/type; AI conservative thresholds and unavailable-provider fallback (mock responses, no live AI accuracy claim)
+PASS: migration planner (fresh, legacy execute-file database, partial, tracked, inconsistent states)
+PASS: unmigrated DB -> 503 with hint (auth + data); migrated DB -> /api/data 200, register 200, HTTP cookie without Secure, short password 400
+PASS: card grouping and prefix, exact local phone length, international paste and expiry validation.
+[teja] POST /api/data: Olib ketish vaqti allaqachon belgilangan yoki buyurtma faol emas
+PASS: password registration, admin isolation, sessions/logout/rotation, CSRF, image moderation, inventory, Payme/Click authentication, amount checks, replay safety, atomic receipts, cancellation, expiry, bank-token validation, wallet isolation and SMS verification. Provider HTTP responses mocked; no live money/SMS.
+PASS: local env synchronization, no plaintext password, unified admin login and local HTTP cookie.
+[teja] POST /api/data: Olib ketish vaqti allaqachon belgilangan yoki buyurtma faol emas
+PASS: password registration, admin isolation, sessions/logout/rotation, CSRF, image moderation, inventory, Payme/Click authentication, amount checks, replay safety, atomic receipts, cancellation, expiry, bank-token validation, wallet isolation and SMS verification. Provider HTTP responses mocked; no live money/SMS.
+[teja] POST /api/data: Topshirish kodi noto‘g‘ri
+[teja] POST /api/data: Qoldiq yetarli emas yoki mahsulot muddati tugashiga juda oz qoldi
+PASS: mock Click/Payme/card signed callback paths, no network, replay, IDOR, receipts, refund, notifications, OTP expiry/cooldown/attempts, verified gate, moderation, pagination, competing stock, export/delete
+PASS: map coordinates, encoding, address fallback and invalid-point handling
+[teja] POST /api/data: Olib ketish vaqti allaqachon belgilangan yoki buyurtma faol emas
+PASS: password registration, admin isolation, sessions/logout/rotation, CSRF, image moderation, inventory, Payme/Click authentication, amount checks, replay safety, atomic receipts, cancellation, expiry, bank-token validation, wallet isolation and SMS verification. Provider HTTP responses mocked; no live money/SMS.
+[teja] POST /api/auth: Kod muddati tugagan yoki 5 urinish sarflangan. Yangi kod oling
+[teja] POST /api/auth: Kod muddati tugagan yoki 5 urinish sarflangan. Yangi kod oling
+PASS: hashed bearer tokens, atomic refresh rotation, expired access, app-header/cookie isolation, passwordless one-time code, reset session revocation
+[teja] POST /api/data: Olib ketish vaqti allaqachon belgilangan yoki buyurtma faol emas
+PASS: password registration, admin isolation, sessions/logout/rotation, CSRF, image moderation, inventory, Payme/Click authentication, amount checks, replay safety, atomic receipts, cancellation, expiry, bank-token validation, wallet isolation and SMS verification. Provider HTTP responses mocked; no live money/SMS.
+PASS: missing-AI image persists pending, seller moderation denied, admin approval publishes, seller notification, reports roles, notification deduplication

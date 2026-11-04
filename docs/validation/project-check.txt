@@ -1,0 +1,23 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> teja@0.1.0 check:project
+> node scripts/check-project.mjs
+
+OK   package.json
+OK   vite.config.ts
+OK   worker/index.ts
+OK   db/index.ts
+OK   db/schema.ts
+OK   app/page.jsx
+OK   app/api/auth/route.js
+OK   app/api/data/route.js
+OK   .openai/hosting.json
+OK   .env.example
+OK   package scripts dev/build/start
+OK   hosting declares current D1 binding DB
+OK   auth cookie adapts to HTTP preview / HTTPS production
+OK   drizzle journal matches 9 SQL migrations
+OK   vite.config.ts points the D1 binding at ./drizzle
+OK   .env documents all 21 environment variables used by app/ and lib/
+
+Static project checks passed. This does not replace dependency install, build, browser, database, or payment tests.
